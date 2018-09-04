@@ -80,8 +80,8 @@ class SpringSecurityOauth2ProviderGrailsPlugin extends Plugin {
 	def loadAfter = ["springSecurityCore"]
 
 	def license = "APACHE"
-	def issueManagement = [ system:"GitHub", url:"http://github.com/bluesliverx/grails-spring-security-oauth2-provider/issues" ]
-	def scm = [ url:"http://github.com/bluesliverx/grails-spring-security-oauth2-provider" ]
+	def issueManagement = [ system:"GitHub", url:"http://github.com/grails-plugins/grails-spring-security-oauth2-provider/issues" ]
+	def scm = [ url:"http://github.com/grails-plugins/grails-spring-security-oauth2-provider" ]
 
 	def developers = [
 			[ name: "Brian Saville", email: "bksaville@gmail.com" ],
@@ -91,7 +91,7 @@ class SpringSecurityOauth2ProviderGrailsPlugin extends Plugin {
 	def title = 'OAuth2 Provider support for the Spring Security plugin.'
 	def description = 'OAuth2 Provider support for the Spring Security plugin.'
 
-	def documentation = 'http://bluesliverx.github.io/grails-spring-security-oauth2-provider/'
+	def documentation = 'http://grails-plugins.github.io/grails-spring-security-oauth2-provider/'
 
     def profiles = ['web']
 
