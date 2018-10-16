@@ -7,6 +7,7 @@ import grails.plugin.springsecurity.oauthprovider.serialization.OAuth2Additional
 import grails.plugin.springsecurity.oauthprovider.serialization.OAuth2AuthenticationSerializer
 import grails.plugin.springsecurity.oauthprovider.serialization.OAuth2ScopeSerializer
 import grails.core.GrailsApplication
+import groovy.util.logging.Slf4j
 import org.springframework.security.oauth2.common.DefaultExpiringOAuth2RefreshToken
 import org.springframework.security.oauth2.common.DefaultOAuth2AccessToken
 import org.springframework.security.oauth2.common.DefaultOAuth2RefreshToken
@@ -17,6 +18,7 @@ import org.springframework.security.oauth2.provider.OAuth2Authentication
 import org.springframework.security.oauth2.provider.token.AuthenticationKeyGenerator
 import org.springframework.security.oauth2.provider.token.TokenStore
 
+@Slf4j
 @Transactional
 class GormTokenStoreService implements TokenStore {
 

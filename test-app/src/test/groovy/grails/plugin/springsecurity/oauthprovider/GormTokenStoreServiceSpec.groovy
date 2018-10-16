@@ -3,13 +3,10 @@ package grails.plugin.springsecurity.oauthprovider
 import grails.plugin.springsecurity.SpringSecurityUtils
 import grails.plugin.springsecurity.oauthprovider.serialization.DefaultOAuth2AdditionalInformationSerializer
 import grails.plugin.springsecurity.oauthprovider.serialization.DefaultOAuth2ScopeSerializer
-import grails.plugin.springsecurity.oauthprovider.serialization.OAuth2AdditionalInformationSerializer
 import grails.plugin.springsecurity.oauthprovider.serialization.OAuth2AuthenticationSerializer
-import grails.plugin.springsecurity.oauthprovider.serialization.OAuth2ScopeSerializer
 import grails.test.mixin.Mock
 import grails.test.mixin.TestFor
 import helper.OAuth2RequestFactory
-import org.springframework.security.core.Authentication
 import org.springframework.security.oauth2.common.DefaultExpiringOAuth2RefreshToken
 import org.springframework.security.oauth2.common.DefaultOAuth2AccessToken
 import org.springframework.security.oauth2.common.DefaultOAuth2RefreshToken
@@ -228,8 +225,8 @@ class GormTokenStoreServiceSpec extends Specification {
         service.removeAccessToken(tokenValue)
 
         service.storeAccessToken(_, _) >> { OAuth2AccessToken accessToken, OAuth2Authentication auth ->
-            assert accessToken.value == tokenValue
-            assert auth == oauth2Authentication
+            accessToken.value == tokenValue
+            auth == oauth2Authentication
         }
 
         oauth2Authentication.getOAuth2Request() >> oauth2Request
