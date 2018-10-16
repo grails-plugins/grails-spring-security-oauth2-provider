@@ -88,11 +88,7 @@ task gdocs() {
 }
 
 grailsPublish {
-    //user = 'user'  // Not required if you defined BINTRAY_USER var
-    //key = 'key'    // Not required if you defined BINTRAY_KEY var
-    userOrg = 'bluesliverx'
-    repo = 'grails-plugins'
-    githubSlug = 'bluesliverx/grails-spring-security-oauth2-provider'
+    githubSlug = 'grails-plugins/grails-spring-security-oauth2-provider'
     license {
         name = 'Apache-2.0'
     }
@@ -103,6 +99,6 @@ grailsPublish {
         'bobby-vandiver':'Bobby Vandiver',
         dynamind:'Roy Willemse'
     ]
-    issueTrackerUrl = 'http://github.com/bluesliverx/grails-spring-security-oauth2-provider/issues'
-    vcsUrl = 'http://github.com/bluesliverx/grails-spring-security-oauth2-provider'
+    issueTrackerUrl = 'http://github.com/grails-plugins/grails-spring-security-oauth2-provider/issues'
+    vcsUrl = 'http://github.com/grails-plugins/grails-spring-security-oauth2-provider'
 }
