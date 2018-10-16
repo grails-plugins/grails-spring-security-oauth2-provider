@@ -108,7 +108,7 @@ class SpringSecurityOauth2ProviderGrailsPlugin extends Plugin {
             return
         }
 
-		println 'Configuring Spring Security OAuth2 provider ...'
+		log.info 'Configuring Spring Security OAuth2 provider ...'
 
         // Required for list constructor arguments for versions < 2.2-RC1
         // GRAILS-4995: https://jira.grails.org/browse/GRAILS-4995
@@ -174,7 +174,7 @@ class SpringSecurityOauth2ProviderGrailsPlugin extends Plugin {
         configureFilterRegistrationBeans.delegate = delegate
         configureFilterRegistrationBeans()
 
-		println "... done configuring Spring Security OAuth2 provider"
+        log.info "... done configuring Spring Security OAuth2 provider"
 	}}
 
     private configureGormSupport = {
