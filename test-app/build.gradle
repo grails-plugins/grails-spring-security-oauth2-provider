@@ -55,9 +55,18 @@ dependencies {
     runtime "org.apache.tomcat:tomcat-jdbc"
     runtime "com.bertramlabs.plugins:asset-pipeline-grails:2.14.2"
     testCompile "org.grails:grails-plugin-testing"
+    testCompile 'org.codehaus.groovy.modules.http-builder:http-builder:0.7.1', {
+        ["commons-logging", "xml-apis", "groovy"].each { exclude module: it }
+    }
     testCompile "org.grails.plugins:geb"
     testRuntime "org.seleniumhq.selenium:selenium-htmlunit-driver:2.47.1"
     testRuntime "net.sourceforge.htmlunit:htmlunit:2.18"
+    testCompile "org.seleniumhq.selenium:selenium-chrome-driver:2.53.0"
+
+    // TODO switch back to com.github.detro:phantomjsdriver when this issue is resolved:
+    // https://github.com/detro/ghostdriver/issues/397
+    testCompile 'com.codeborne:phantomjsdriver:1.3.0'
+
 }
 
 integrationTest {
