@@ -5,6 +5,7 @@ import grails.test.mixin.TestFor
 import grails.test.mixin.TestMixin
 import grails.test.mixin.support.GrailsUnitTestMixin
 import spock.lang.Ignore
+import spock.lang.IgnoreIf
 import spock.lang.Specification
 import spock.lang.Unroll
 import test.oauth2.AccessToken
@@ -124,6 +125,7 @@ class AccessTokenSpec extends Specification {
         !newToken.validate(['authenticationKey'])
     }
 
+    @Ignore("grails/grails-core##10786")
     @Unroll
     void "test authentication constraints [#auth] is valid [#valid]"() {
         when:

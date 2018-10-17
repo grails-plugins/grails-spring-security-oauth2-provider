@@ -2,6 +2,7 @@ package test.oauth2
 
 import grails.test.mixin.TestFor
 import spock.lang.Ignore
+import spock.lang.IgnoreIf
 import spock.lang.Specification
 import spock.lang.Unroll
 import test.oauth2.RefreshToken
@@ -34,6 +35,7 @@ class RefreshTokenSpec extends Specification {
         value << [null, '']
     }
 
+    @Ignore("grails/grails-core##10786")
     @Unroll
     void "test authentication constraints [#auth] is valid [#valid]"() {
         when:
