@@ -58,6 +58,7 @@ dependencies {
     testCompile 'org.codehaus.groovy.modules.http-builder:http-builder:0.7.1', {
         ["commons-logging", "xml-apis", "groovy"].each { exclude module: it }
     }
+    testCompile "org.grails:grails-test-mixins:3.3.0"
     testCompile "org.grails.plugins:geb"
     testRuntime "org.seleniumhq.selenium:selenium-htmlunit-driver:2.47.1"
     testRuntime "net.sourceforge.htmlunit:htmlunit:2.18"
