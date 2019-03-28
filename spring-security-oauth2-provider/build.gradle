@@ -16,7 +16,7 @@ plugins {
     id "com.jfrog.bintray" version "1.2"
 }
 
-version "3.1.1.BUILD-SNAPSHOT"
+version "3.2.0.BUILD-SNAPSHOT"
 group "org.grails.plugins"
 
 //apply plugin: 'maven-publish'
@@ -31,6 +31,7 @@ repositories {
     mavenLocal()
     mavenCentral()
     maven { url "https://repo.grails.org/grails/core" }
+    maven { url "http://oss.jfrog.org/oss-snapshot-local" }
 }
 
 dependencies {
@@ -42,9 +43,9 @@ dependencies {
     provided "org.grails.plugins:gsp"
     provided 'javax.servlet:javax.servlet-api:3.1.0'
 
-    compile 'org.grails.plugins:spring-security-core:3.3.0.M1'
+    compile 'org.grails.plugins:spring-security-core:4.0.0.BUILD-SNAPSHOT'
 
-    compile 'org.springframework.security.oauth:spring-security-oauth2:2.0.9.RELEASE', {
+    compile 'org.springframework.security.oauth:spring-security-oauth2:2.0.17.RELEASE', {
         [
                 "spring-beans",
                 "spring-core",
