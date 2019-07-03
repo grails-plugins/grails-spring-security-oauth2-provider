@@ -70,7 +70,7 @@ task gdocs() {
     description 'Generate Grails Doc style documentation'
     doLast {
         def srcDocs = file("src/docs")
-        def outputDir = file("$buildDir/docs/manual")
+        def outputDir = file("docs/manual")
         def publisher = new DocPublisher(srcDocs, outputDir)
         publisher.with {
             ant = project.ant
