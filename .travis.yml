@@ -6,11 +6,11 @@ install: "./install-dependencies.sh"
 script: "./travis-build.sh"
 branches:
   only:
-    - master
-    - /^[0-9.]+.*$/
+  - master
+  - /^[0-9.]+.*$/
 before_script:
-  - rm -rf target
-  - rm -rf docs
+- rm -rf target
+- rm -rf docs
 env:
   global:
   - GIT_NAME="Brian Saville"
