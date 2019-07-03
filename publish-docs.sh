@@ -46,7 +46,7 @@ if [[ -n $TRAVIS_TAG ]]; then
     git add "$majorVersion/*"
 fi
 
-cp -r ../spring-security-oauth2-provider/build/docs/manual/index.html ./index.html
+cp -r ../spring-security-oauth2-provider/gh-pages-index.html ./index.html
 
 git commit -a -m "Updating docs for Travis build: https://travis-ci.org/$TRAVIS_REPO_SLUG/builds/$TRAVIS_BUILD_ID"
 git push origin HEAD
