@@ -1,3 +1,15 @@
+* 3.2.1
+** Fix logging (https://github.com/grails/grails-core/issues/10683)
+** Upgrade spring-security-oauth2 to 2.0.18 for security fixes
+** Moved to a new organization (grails-plugins) on GitHub, all PR references below are for the bluesliverx repo
+
+* 3.2.0
+** Bad release, ignore this version
+
+* 3.1.0-RC1
+** Upgrades needed for Grails 3.3.x (PR #141)
+** Fixes for config loading (PR #139)
+
 * 3.0.0-RC2
 ** Upgrade to Spring Security OAuth 2.0.9-RELEASE
 ** Fix issues with Grails 3.1.x (#114, PR #116)
