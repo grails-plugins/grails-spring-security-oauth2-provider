@@ -7,13 +7,11 @@ echo "Generating Docs"
 
 git config --global user.name "$GIT_NAME"
 git config --global user.email "$GIT_EMAIL"
-git config --global credential.helper "store --file=~/.git-credentials"
-echo "https://$GITHUB_TOKEN:@github.com" > ~/.git-credentials
 
 
 echo "Publishing Documentation"
 
-git clone https://${GITHUB_TOKEN}@github.com/${TRAVIS_REPO_SLUG}.git -b gh-pages gh-pages --single-branch > /dev/null
+git clone git@github.com:${TRAVIS_REPO_SLUG}.git -b gh-pages gh-pages --single-branch > /dev/null
 cd gh-pages
 
 # Show commands that are run
