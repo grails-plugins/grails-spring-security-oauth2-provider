@@ -19,7 +19,7 @@ cd gh-pages
 # If this is the master branch then update the snapshot
 if [[ $TRAVIS_BRANCH == 'master' ]]; then
     mkdir -p snapshot
-    cp -r ../build/docs/manual/. ./snapshot/
+    cp -r ../spring-security-oauth2-provider/build/docs/manual/. ./snapshot/
 
     git add snapshot/*
 fi
@@ -28,7 +28,7 @@ fi
 if [[ -n $TRAVIS_TAG ]]; then
     git rm -rf latest/
     mkdir -p latest
-    cp -r ../plugin/build/docs/. ./latest/
+    cp -r ../spring-security-oauth2-provider/build/docs/. ./latest/
     git add latest/*
 
     version="$TRAVIS_TAG" # eg: v3.0.1
@@ -37,15 +37,15 @@ if [[ -n $TRAVIS_TAG ]]; then
     majorVersion="${majorVersion}x" # 3.0.x
 
     mkdir -p "$version"
-    cp -r ../plugin/build/docs/. "./$version/"
+    cp -r ../spring-security-oauth2-provider/build/docs/. "./$version/"
     git add "$version/*"
 
     git rm -rf "$majorVersion"
-    cp -r ../plugin/build/docs/. "./$majorVersion/"
+    cp -r ../spring-security-oauth2-provider/build/docs/. "./$majorVersion/"
     git add "$majorVersion/*"
 fi
 
-cp -r ../build/docs/index.html ./index.html
+cp -r ../spring-security-oauth2-provider/build/docs/index.html ./index.html
 
 git commit -a -m "Updating docs for Travis build: https://travis-ci.org/$TRAVIS_REPO_SLUG/builds/$TRAVIS_BUILD_ID"
 git push origin HEAD
