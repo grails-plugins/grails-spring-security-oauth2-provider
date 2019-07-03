@@ -16,6 +16,9 @@ echo "Publishing Documentation"
 git clone https://${GITHUB_TOKEN}@github.com/${TRAVIS_REPO_SLUG}.git -b gh-pages gh-pages --single-branch > /dev/null
 cd gh-pages
 
+# Show commands that are run
+set -e
+
 # If this is the master branch then update the snapshot
 if [[ $TRAVIS_BRANCH == 'master' ]]; then
     mkdir -p snapshot
@@ -45,7 +48,7 @@ if [[ -n $TRAVIS_TAG ]]; then
     git add "$majorVersion/*"
 fi
 
-cp -r ../spring-security-oauth2-provider/build/docs/index.html ./index.html
+cp -r ../spring-security-oauth2-provider/build/docs/manual/index.html ./index.html
 
 git commit -a -m "Updating docs for Travis build: https://travis-ci.org/$TRAVIS_REPO_SLUG/builds/$TRAVIS_BUILD_ID"
 git push origin HEAD
