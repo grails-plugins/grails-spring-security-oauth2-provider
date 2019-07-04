@@ -27,10 +27,10 @@ fi
 
 # If there is a tag present then this becomes the latest
 if [[ -n $TRAVIS_TAG ]]; then
-    git rm -rf latest/
+    git rm -rf latest/ || true
     mkdir -p latest
     cp -r ../spring-security-oauth2-provider/build/docs/. ./latest/
-    git add latest/*
+    git add "latest/*"
 
     version="$TRAVIS_TAG" # eg: v3.0.1
     version=${version:1} # 3.0.1
