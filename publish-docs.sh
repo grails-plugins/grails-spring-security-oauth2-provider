@@ -3,7 +3,7 @@ set -e
 
 echo "Generating Docs"
 
-./gradlew :spring-security-oauth2-provider:docs || EXIT_STATUS=$?
+./gradlew :spring-security-oauth2-provider:docs
 
 git config --global user.name "$GIT_NAME"
 git config --global user.email "$GIT_EMAIL"
