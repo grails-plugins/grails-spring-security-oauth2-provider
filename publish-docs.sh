@@ -20,10 +20,11 @@ set -e
 
 # If this is the master branch then update the snapshot
 if [[ $TRAVIS_BRANCH == 'master' ]]; then
+    git rm -rf snapshot/ || true
     mkdir -p snapshot
-    cp -r ../spring-security-oauth2-provider/build/docs/manual/. ./snapshot/
+    cp -r ../spring-security-oauth2-provider/build/docs/. ./snapshot/
 
-    git add snapshot/*
+    git add snapshot
 fi
 
 # If there is a tag present then this becomes the latest
