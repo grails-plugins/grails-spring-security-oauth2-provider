@@ -11,6 +11,7 @@ git config --global user.email "$GIT_EMAIL"
 
 echo "Publishing Documentation"
 
+rm -rf gh-pages
 git clone git@github.com:${TRAVIS_REPO_SLUG}.git -b gh-pages gh-pages --single-branch > /dev/null
 cd gh-pages
 
@@ -30,20 +31,19 @@ if [[ -n $TRAVIS_TAG ]]; then
     git rm -rf latest/ || true
     mkdir -p latest
     cp -r ../spring-security-oauth2-provider/build/docs/. ./latest/
-    git add "latest/*"
+    git add latest
 
-    version="$TRAVIS_TAG" # eg: v3.0.1
-    version=${version:1} # 3.0.1
+    version="$TRAVIS_TAG" # eg: 3.0.1
     majorVersion=${version:0:4} # 3.0.
     majorVersion="${majorVersion}x" # 3.0.x
 
     mkdir -p "$version"
     cp -r ../spring-security-oauth2-provider/build/docs/. "./$version/"
-    git add "$version/*"
+    git add "$version"
 
-    git rm -rf "$majorVersion"
+    git rm -rf "$majorVersion" || true
     cp -r ../spring-security-oauth2-provider/build/docs/. "./$majorVersion/"
-    git add "$majorVersion/*"
+    git add "$majorVersion"
 fi
 
 cp -r ../spring-security-oauth2-provider/gh-pages-index.html ./index.html
