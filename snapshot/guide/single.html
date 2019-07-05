@@ -2,7 +2,7 @@
                       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
     <head>
-        <title>spring-security-oauth2-provider 3.2.1.BUILD-SNAPSHOT</title>
+        <title>spring-security-oauth2-provider 3.2.2.BUILD-SNAPSHOT</title>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" href="../css/main.css" type="text/css" media="screen, print" title="Style" charset="utf-8" />
         <link rel="stylesheet" href="../css/pdf.css" type="text/css" media="print" title="PDF" charset="utf-8" />
@@ -66,7 +66,7 @@ function addJsClass(el) {
                         <div class="project">
                             <h1>spring-security-oauth2-provider</h1>
                             <p><strong>Authors:</strong> </p>
-                            <p><strong>Version:</strong> 3.2.1.BUILD-SNAPSHOT</p>
+                            <p><strong>Version:</strong> 3.2.2.BUILD-SNAPSHOT</p>
                             
                         </div>
 
@@ -173,6 +173,21 @@ The OAuth2 plugin adds <a href="http://oauth.net/2/" target="blank">OAuth 2.0</a
 
 
 <ul class="star">
+<li>3.2.1</li>
+<ul class="star">
+<li>Fix logging (https://github.com/grails/grails-core/issues/10683)</li>
+<li>Upgrade spring-security-oauth2 to 2.0.18 for security fixes</li>
+<li>Moved to a new organization (grails-plugins) on GitHub, all PR references below are for the bluesliverx repo</li>
+</ul>
+<li>3.2.0</li>
+<ul class="star">
+<li>Bad release, ignore this version</li>
+</ul>
+<li>3.1.0-RC1</li>
+<ul class="star">
+<li>Upgrades needed for Grails 3.3.x (PR #141)</li>
+<li>Fixes for config loading (PR #139)</li>
+</ul>
 <li>3.0.0-RC2</li>
 <ul class="star">
 <li>Upgrade to Spring Security OAuth 2.0.9-RELEASE</li>
@@ -248,7 +263,7 @@ The following assumes that the Spring Security Core plugin has been installed an
 
 Install the OAuth2 plugin by adding a dependency in <code>build.gradle</code>:<p class="paragraph"/><div class="code"><pre>dependencies &#123;
     &#35; For Grails 3.3+
-    compile 'org.grails.plugins:spring&#45;security&#45;oauth2&#45;provider:3.1.0&#45;RC1'
+    compile 'org.grails.plugins:spring&#45;security&#45;oauth2&#45;provider:3.2.1'
     &#35; For Grails 3 before 3.3
     compile 'org.grails.plugins:spring&#45;security&#45;oauth2&#45;provider:3.0.0&#45;RC2'
 &#125;</pre></div><p class="paragraph"/>This has a dependency on the Spring Security Core plugin, which will be installed if necessary.
