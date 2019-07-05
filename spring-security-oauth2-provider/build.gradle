@@ -13,7 +13,7 @@ buildscript {
 }
 
 plugins {
-    id "com.jfrog.bintray" version "1.2"
+    id "com.jfrog.bintray" version "1.+"
 }
 
 version "3.2.1"
@@ -88,6 +88,8 @@ task gdocs() {
 }
 
 grailsPublish {
+    userOrg = 'bluesliverx'
+    repo = 'grails-plugins'
     githubSlug = 'grails-plugins/grails-spring-security-oauth2-provider'
     license {
         name = 'Apache-2.0'
