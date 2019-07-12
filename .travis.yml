@@ -6,22 +6,24 @@ install: "./install-dependencies.sh"
 script: "./travis-build.sh"
 branches:
   only:
-    - master
-    - /^[0-9.]+.*$/
+  - master
+  - /^[0-9.]+.*$/
 before_script:
-  - rm -rf target
-  - rm -rf docs
+- rm -rf build docs target gh-pages spring-security-oauth2-provider/build
+- openssl aes-256-cbc -K $encrypted_c12e6c8df1af_key -iv $encrypted_c12e6c8df1af_iv -in github_deploy_key.enc -out /tmp/deploy_rsa -d
+- eval "$(ssh-agent -s)"
+- chmod 600 /tmp/deploy_rsa
+- ssh-add /tmp/deploy_rsa
 env:
   global:
   - GIT_NAME="Brian Saville"
   - GIT_EMAIL="bksaville@gmail.com"
-  # travis encrypt -a env.global 'GRAILS_CENTRAL_USERNAME=myusername'
-  # travis encrypt -a env.global 'GRAILS_CENTRAL_PASSWORD=mypassword'
   # travis encrypt -a env.global 'BINTRAY_USER=myusername'
   # travis encrypt -a env.global 'BINTRAY_KEY=mypassword'
-  # travis encrypt -a env.global 'GITHUB_TOKEN=token' # get the token from https://github.com/settings/applications
+  - secure: Wx/Mv5gOJBNmLF+XmRJFe850flTF3G0E0Vh3oeKUo+/Dz00M5BG3KB3qUuq/r/h5U7ep1LzHn609GBCqjoEZRH04sfzvzEYxTt6FEwLjyqh6oBFdVrArWJEQ0uFBemNkbRf+wwj41/mprm5gv8R6/223JX1SyHVPENbpGknls+pNRX4d4UoxUJ6cUD8dtOQtrUBQQImT+LxF91cxmDbWGDdO6zN8dPEHLaRteIcbC1ceSL8YQoalH+lMG0Ak1PgUl4zqM5fze26Mf+uiRqmdFENCGvMQ23kTCbcIWBf5xYhdxiyFoyQcDF0UV6I66NSH/R3tg+7wKZuedkbdQDgo49QIL17HA9b3EI3S87xOOcwShUZGiTM3rm7ZcA0kVcDgQ7N9aOLAWxeuX9EXJbGfCgAh1/ylbWj+TM9dXfdVW8oIoJt/2+/GS7Q7xtAcBrYqYa1Hrv0yiBl8BlyWhz9uHxzOvq0XgDvIfmEEdenk1ewOI5wfWWZJp8JkRuR4sBG01Q4W0T3d2NtJwQiiAK6vPC+/jj2fICMF5ePXd3WyuBV/9G2DLybjxlrYSHv1ALwCyeskAqPf/dLVQ0Ws5TF6yHz5D2WEdmmLzitWz7o0eHzDEYRZ/ZvnfKGcuXeTnXbmWmrwSGgvBWnXam2tx/rlRRPFoF4whd6kItLtuz+3vGM=
+  - secure: fyegpmTTabrDdjK4Nv8AT5aS2jD7NhRTbosRUZHxnP8spXhfx/FusdmWaWTaDBZpYTwbo8oNGudjSgvPRNauDNMIGFnKd6BIhpvkdlhfv0+uN4Hw2X+XWcPrEgrTflrFoD3RD01R9lTYYNrYkCKu+G7iXNxmUh9i1+Ut9wVMNFrx9mg/bS0HcI8F3jqVQT4QQCpwEukoQk37lMvQaIlHlYMchAtU1vegj8FEDG8e74nP3Zz0ch98aaS3KJucyb+jaaciAk9eg3ZvZ/yVoO5cyrH6ThCXy9vh4lYfUH8xhSC3cILvvvlJB/EFjwaTkcIDDEnBY6rGChfMinO9gU6tdQmFFbj+QQ/qiFx401BPGPbm/x3Z1ykCL2CgeE3EkiK9xX8Vw96RAjjvQLd/kzKDfFfy7KbgAe/Az2o0qCmA2jSJ2vi3GVLdkX3g9hVGjAdlA3Rew1YF12YxqhXphNsajS5Vce3zwjxtnb2wn0ptzTvqA105bgtNdxeihdo96jH7OQClR9rj+zKUuGBJVb7FXFBciYYwPIpHeTirH52O2I0SRh88dHyx4iVGupYQ4d8jtZZb0i3FLH8d6t+WrJI/YfUN925Q39vrtywGju9+EO9Y2gnk2bpsJq9pm5kvgMM7GHTBaDnJLC038TRiBH6PFDqdJrpizHG2Buywy4Jooq4=
+  # I'm not sure if these are still used for anything
+  # travis encrypt -a env.global 'GRAILS_CENTRAL_USERNAME=myusername'
+  # travis encrypt -a env.global 'GRAILS_CENTRAL_PASSWORD=mypassword'
   - secure: aHPAUuip+gWj3pba1S6aqMkdVe5DQSN9hL/X0K5vY4HDrsJ3FE15CkcgFT9il02SiyIUJHY3esdnW/gaK55lzPCv0b6GRLrZfE/qSwpVzEyxyfBK15OYNzQm/jH10kJXUVbGhF0hpkLO8x9kVGJJsdKqSH5YsFYXFPEEL7xUo74=
   - secure: YMCir5j/i6T7IJd3D4QqQifyDlXComWMzCJI9W2QWvHbZ90YmRufIe+HlTtIP7HJEbJsXXR1f94dSiXTie0nbSWById27HwhnX30AcRExItn4MsgOhOeiHLR4946X8JSP6zcy+BiSAlpkxVDCHmEo6FW4onHt/G+spwcFZ1KbP8=
-  - secure: dVM+jJNq6YB0o6Fw48aST6oZ7QusSoMoiUBD71/QOW679J1XIQHwaP2RYRqGY5b6A6ub6X7WaSkJ+d569BTL491S7buJxH0+OqSGrduxCxOIkc/9O9eX26WoZtnseKJy2SjclFJaomusLKtvTLrR3nz0SL2sMuAhkCqu0ksbk6o=
-  - secure: ZKSGT4j+qrm/kGXIGCq4g8n5oDY7F20mevmA0e+y9/TSutNQZ4rz7f0DYp+I6kH4SZTM0RksSJNff/kFA3hE6VQqINcivU6dOIrVCFH0aWJO3nMo+7y37ZjhtfqkYpVxX5HIUmEINn80yL1aMEcFx2Ji5rc3+v3UVOWPnnlhfjY=
-  - secure: JZMnGIywsEIG9s9dPQ3KQlCoqjPYxDXPKEGSAylFpSKmBXPCUnoZsAefFrgnajFJDlXMlV8VL1PSqn//KUOFuSurPym+ZTg0HfNeWs7K50yg3J5465gE9NzDLJBGDJDVa31nuEsI54QdxoJy6pUPA+l9nIJYz3dbBYe03GYpT94=
