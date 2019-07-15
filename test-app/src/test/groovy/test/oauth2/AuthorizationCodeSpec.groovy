@@ -1,14 +1,12 @@
 package test.oauth2
 
-import grails.test.mixin.TestFor
+import grails.testing.gorm.DomainUnitTest
 import spock.lang.Ignore
-import spock.lang.IgnoreIf
 import spock.lang.Specification
 import spock.lang.Unroll
 import test.oauth2.AuthorizationCode
 
-@TestFor(AuthorizationCode)
-class AuthorizationCodeSpec extends Specification {
+class AuthorizationCodeSpec extends Specification implements DomainUnitTest<AuthorizationCode> {
 
     void "require code and authentication"() {
         given:
@@ -25,11 +23,9 @@ class AuthorizationCodeSpec extends Specification {
         authorizationCode.authentication == serializedAuthentication
     }
 
-    @Ignore("TODO: Find Grails 3 equivalent of mockForConstraintsTests")
     void "code must be unique"() {
         given:
         def existingCode = new AuthorizationCode(code: 'foo')
-        mockForConstraintsTests(AuthorizationCode, [existingCode])
 
         when:
         def newCode = new AuthorizationCode(code: 'foo')

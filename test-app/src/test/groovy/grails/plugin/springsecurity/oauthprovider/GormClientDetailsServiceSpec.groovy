@@ -2,13 +2,12 @@ package grails.plugin.springsecurity.oauthprovider
 
 import grails.plugin.springsecurity.SpringSecurityUtils
 import grails.plugin.springsecurity.oauthprovider.serialization.OAuth2AdditionalInformationSerializer
-import grails.test.mixin.TestFor
+import grails.testing.services.ServiceUnitTest
 import spock.lang.Specification
 import spock.lang.Unroll
 import test.oauth2.Client
 
-@TestFor(GormClientDetailsService)
-class GormClientDetailsServiceSpec extends Specification {
+class GormClientDetailsServiceSpec extends Specification implements ServiceUnitTest<GormClientDetailsService> {
 
     void setup() {
         service.grailsApplication = grailsApplication

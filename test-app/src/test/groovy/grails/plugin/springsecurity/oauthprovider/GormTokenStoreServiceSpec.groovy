@@ -4,8 +4,8 @@ import grails.plugin.springsecurity.SpringSecurityUtils
 import grails.plugin.springsecurity.oauthprovider.serialization.DefaultOAuth2AdditionalInformationSerializer
 import grails.plugin.springsecurity.oauthprovider.serialization.DefaultOAuth2ScopeSerializer
 import grails.plugin.springsecurity.oauthprovider.serialization.OAuth2AuthenticationSerializer
-import grails.test.mixin.Mock
-import grails.test.mixin.TestFor
+import grails.testing.gorm.DataTest
+import grails.testing.services.ServiceUnitTest
 import helper.OAuth2RequestFactory
 import org.springframework.security.oauth2.common.DefaultExpiringOAuth2RefreshToken
 import org.springframework.security.oauth2.common.DefaultOAuth2AccessToken
@@ -19,9 +19,7 @@ import spock.lang.Unroll
 import test.oauth2.AccessToken
 import test.oauth2.RefreshToken
 
-@TestFor(GormTokenStoreService)
-@Mock([AccessToken, RefreshToken])
-class GormTokenStoreServiceSpec extends Specification {
+class GormTokenStoreServiceSpec extends Specification implements ServiceUnitTest<GormTokenStoreService>, DataTest {
 
     final String clientId = 'client'
 
@@ -39,6 +37,11 @@ class GormTokenStoreServiceSpec extends Specification {
     byte[] serializedAuthentication = [0xf0, 0x0d] as byte[]
 
     OAuth2Request oauth2Request = OAuth2RequestFactory.createOAuth2Request(clientId: clientId)
+
+    @Override
+    Class[] getDomainClassesToMock() {
+        [AccessToken, RefreshToken]
+    }
 
     void setup() {
         service.oauth2AuthenticationSerializer = Mock(OAuth2AuthenticationSerializer)

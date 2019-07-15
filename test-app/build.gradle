@@ -56,15 +56,14 @@ dependencies {
     runtime "com.h2database:h2"
     runtime "org.apache.tomcat:tomcat-jdbc"
     runtime "com.bertramlabs.plugins:asset-pipeline-grails:2.14.2"
-    testCompile "org.grails:grails-test-mixins:3.3.0"
+    testCompile "org.grails:grails-testing-support:1.1.5"
     testCompile "org.grails:grails-gorm-testing-support:1.1.5"
     testCompile "org.grails:grails-web-testing-support:1.1.5"
-    testCompile "org.grails:grails-datastore-gorm-test:$gormVersion"
+    testCompile "org.grails:grails-datastore-gorm-test"
     testCompile 'org.spockframework:spock-core:1.2-groovy-2.5'
     testCompile 'org.codehaus.groovy.modules.http-builder:http-builder:0.7.1', {
         ["commons-logging", "xml-apis", "groovy"].each { exclude module: it }
     }
-    testCompile "org.grails:grails-test-mixins:3.3.0"
     testCompile "org.grails.plugins:geb"
     testRuntime "org.seleniumhq.selenium:selenium-htmlunit-driver:2.47.1"
     testRuntime "net.sourceforge.htmlunit:htmlunit:2.18"

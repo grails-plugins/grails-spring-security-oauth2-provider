@@ -1,11 +1,11 @@
 package test.oauth2
 
-import grails.test.mixin.TestFor
+
+import grails.testing.gorm.DomainUnitTest
 import spock.lang.Specification
 import spock.lang.Unroll
 
-@TestFor(UserApproval)
-class UserApprovalSpec extends Specification {
+class UserApprovalSpec extends Specification implements DomainUnitTest<UserApproval> {
 
     @Unroll
     void "property [#key] with value [#value] is valid [#valid]"() {

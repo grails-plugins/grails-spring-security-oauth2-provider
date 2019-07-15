@@ -1,13 +1,12 @@
 package test.oauth2
 
-import grails.test.mixin.*
-import spock.lang.Ignore
+
+import grails.testing.gorm.DomainUnitTest
 import spock.lang.Specification
 import spock.lang.Unroll
 import test.oauth2.Client
 
-@TestFor(Client)
-class ClientSpec extends Specification {
+class ClientSpec extends Specification implements DomainUnitTest<Client> {
 
     @Unroll
     void "client id is required -- check invalid id [#clientId]"() {
@@ -21,11 +20,9 @@ class ClientSpec extends Specification {
         clientId << [null, '']
     }
 
-    @Ignore("TODO: Find Grails 3 equivalent of mockForConstraintsTests")
     void "client id must be unique"() {
         given:
         def existingClient = new Client(clientId: 'client')
-        mockForConstraintsTests(Client, [existingClient])
 
         when:
         def newClient = new Client(clientId: 'client')

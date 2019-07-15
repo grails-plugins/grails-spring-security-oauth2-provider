@@ -1,19 +1,19 @@
 package test.oauth2
 
-import grails.test.mixin.Mock
-import grails.test.mixin.TestFor
-import grails.test.mixin.TestMixin
-import grails.test.mixin.support.GrailsUnitTestMixin
+
+import grails.testing.gorm.DataTest
 import spock.lang.Ignore
-import spock.lang.IgnoreIf
 import spock.lang.Specification
 import spock.lang.Unroll
 import test.oauth2.AccessToken
 import test.oauth2.RefreshToken
 
-@TestFor(AccessToken)
-@Mock([RefreshToken])
-class AccessTokenSpec extends Specification {
+class AccessTokenSpec extends Specification implements DataTest {
+
+    @Override
+    Class[] getDomainClassesToMock() {
+        [AccessToken, RefreshToken]
+    }
 
     void "username is optional to support flows that don't require it"() {
         when:
@@ -47,11 +47,9 @@ class AccessTokenSpec extends Specification {
         value << [null, '']
     }
 
-    @Ignore("TODO: Find Grails 3 equivalent of mockForConstraintsTests")
     void "value must be unique"() {
         given:
         def existingToken = new AccessToken(value: 'gormAccessToken')
-        mockForConstraintsTests(AccessToken, [existingToken])
 
         when:
         def newToken = new AccessToken(value: 'gormAccessToken')
@@ -112,11 +110,9 @@ class AccessTokenSpec extends Specification {
         'asdf1234'  |   true
     }
 
-    @Ignore("TODO: Find Grails 3 equivalent of mockForConstraintsTests")
     void "authentication key must be unique"() {
         given:
         def existingToken = new AccessToken(authenticationKey: 'key')
-        mockForConstraintsTests(AccessToken, [existingToken])
 
         when:
         def newToken = new AccessToken(authenticationKey: 'key')
