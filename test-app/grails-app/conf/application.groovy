@@ -28,3 +28,8 @@ grails.plugin.springsecurity.oauthProvider.authorizationCodeLookup.className = '
 grails.plugin.springsecurity.oauthProvider.accessTokenLookup.className = 'test.oauth2.AccessToken'
 grails.plugin.springsecurity.oauthProvider.refreshTokenLookup.className = 'test.oauth2.RefreshToken'
 grails.plugin.springsecurity.oauthProvider.approvalLookup.className = 'test.oauth2.UserApproval'
+
+// Ensure behavior matches GORM 6.0.x for now
+grails.gorm.default.mapping = {
+    autowire true
+}

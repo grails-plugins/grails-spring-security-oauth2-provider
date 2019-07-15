@@ -47,6 +47,7 @@ class AccessTokenSpec extends Specification implements DataTest {
         value << [null, '']
     }
 
+    @Ignore("Uniqueness constraints are only test-able in integration tests")
     void "value must be unique"() {
         given:
         def existingToken = new AccessToken(value: 'gormAccessToken')
@@ -110,6 +111,7 @@ class AccessTokenSpec extends Specification implements DataTest {
         'asdf1234'  |   true
     }
 
+    @Ignore("Uniqueness constraints are only test-able in integration tests")
     void "authentication key must be unique"() {
         given:
         def existingToken = new AccessToken(authenticationKey: 'key')

@@ -1,7 +1,8 @@
 package test.oauth2
 
-import grails.test.mixin.integration.Integration
-import grails.transaction.Rollback
+
+import grails.gorm.transactions.Rollback
+import grails.testing.mixin.integration.Integration
 import spock.lang.Specification
 
 @Integration

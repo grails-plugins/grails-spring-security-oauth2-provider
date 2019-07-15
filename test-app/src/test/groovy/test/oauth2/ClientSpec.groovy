@@ -2,6 +2,7 @@ package test.oauth2
 
 
 import grails.testing.gorm.DomainUnitTest
+import spock.lang.Ignore
 import spock.lang.Specification
 import spock.lang.Unroll
 import test.oauth2.Client
@@ -20,6 +21,7 @@ class ClientSpec extends Specification implements DomainUnitTest<Client> {
         clientId << [null, '']
     }
 
+    @Ignore("Uniqueness constraints are only test-able in integration tests")
     void "client id must be unique"() {
         given:
         def existingClient = new Client(clientId: 'client')

@@ -2,7 +2,7 @@ package test.oauth2
 
 import geb.Page
 import geb.spock.GebSpec
-import grails.test.mixin.integration.Integration
+import grails.testing.mixin.integration.Integration
 import helper.TestEnvironmentCleaner
 import pages.AuthorizationPage
 import pages.LoginPage

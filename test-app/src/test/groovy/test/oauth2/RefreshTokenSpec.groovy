@@ -9,6 +9,7 @@ import test.oauth2.RefreshToken
 
 class RefreshTokenSpec extends Specification implements DomainUnitTest<RefreshToken> {
 
+    @Ignore("Uniqueness constraints are only test-able in integration tests")
     void "value must be unique"() {
         given:
         def existingToken = new RefreshToken(value: 'gormRefreshToken')

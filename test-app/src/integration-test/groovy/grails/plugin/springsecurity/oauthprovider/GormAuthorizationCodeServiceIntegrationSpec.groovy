@@ -2,8 +2,8 @@ package grails.plugin.springsecurity.oauthprovider
 
 import grails.plugin.springsecurity.oauthprovider.exceptions.OAuth2ValidationException
 import grails.plugin.springsecurity.oauthprovider.serialization.OAuth2AuthenticationSerializer
-import grails.test.mixin.integration.Integration
-import grails.transaction.Rollback
+import grails.testing.mixin.integration.Integration
+import grails.gorm.transactions.Rollback
 import helper.OAuth2AuthenticationFactory
 import helper.OAuth2RequestFactory
 import org.springframework.beans.factory.annotation.Autowired

@@ -23,6 +23,7 @@ class AuthorizationCodeSpec extends Specification implements DomainUnitTest<Auth
         authorizationCode.authentication == serializedAuthentication
     }
 
+    @Ignore("Uniqueness constraints are only test-able in integration tests")
     void "code must be unique"() {
         given:
         def existingCode = new AuthorizationCode(code: 'foo')

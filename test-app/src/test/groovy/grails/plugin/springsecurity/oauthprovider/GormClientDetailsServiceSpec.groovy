@@ -2,12 +2,13 @@ package grails.plugin.springsecurity.oauthprovider
 
 import grails.plugin.springsecurity.SpringSecurityUtils
 import grails.plugin.springsecurity.oauthprovider.serialization.OAuth2AdditionalInformationSerializer
+import grails.testing.gorm.DataTest
 import grails.testing.services.ServiceUnitTest
 import spock.lang.Specification
 import spock.lang.Unroll
 import test.oauth2.Client
 
-class GormClientDetailsServiceSpec extends Specification implements ServiceUnitTest<GormClientDetailsService> {
+class GormClientDetailsServiceSpec extends Specification implements ServiceUnitTest<GormClientDetailsService>, DataTest {
 
     void setup() {
         service.grailsApplication = grailsApplication
@@ -79,6 +80,7 @@ class GormClientDetailsServiceSpec extends Specification implements ServiceUnitT
         service.loadClientByClientId('gormClient')
 
         then:
+        true
         def e = thrown(IllegalArgumentException)
         e.message == "The specified client domain class '$className' is not a domain class"
 
