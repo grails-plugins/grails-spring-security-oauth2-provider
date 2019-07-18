@@ -17,3 +17,14 @@ dependencies {
 }
 ```
 
+For Grails 4.0 use the following:
+```
+repositories {
+  ...
+  maven { url "http://dl.bintray.com/bluesliverx/grails-plugins" }
+}
+dependencies {
+  ...
+  compile 'org.grails.plugins:spring-security-oauth2-provider:4.0.0'
+}
+```
