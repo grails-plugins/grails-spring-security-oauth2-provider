@@ -5,19 +5,11 @@ Grails Spring Security OAuth2 Provider Plugin
 See [documentation](http://grails-plugins.github.io/grails-spring-security-oauth2-provider/) and the
 [Grails plugin page](http://plugins.grails.org/plugin/grails-plugins/spring-security-oauth2-provider) for further information.
 
-Until the newer deploys work with the Grails repos, you may use the following for Grails 3.3+:
-```
-repositories {
-  ...
-  maven { url "http://dl.bintray.com/bluesliverx/grails-plugins" }
-}
-dependencies {
-  ...
-  compile 'org.grails.plugins:spring-security-oauth2-provider:3.1.0-RC1'
-}
-```
+For Grails 3.3+, use the latest 3.x version. For Grails 4+, use the latest 4.x version.
 
-For Grails 4.0 use the following:
+If you cannot retrieve the the plugin from the Grails repos, you may need to use the following
+(see https://bintray.com/bluesliverx/grails-plugins/spring-security-oauth2-provider for available versions):
+
 ```
 repositories {
   ...
@@ -25,6 +17,6 @@ repositories {
 }
 dependencies {
   ...
-  compile 'org.grails.plugins:spring-security-oauth2-provider:4.0.0'
+  compile 'org.grails.plugins:spring-security-oauth2-provider:<myversion>'
 }
 ```
