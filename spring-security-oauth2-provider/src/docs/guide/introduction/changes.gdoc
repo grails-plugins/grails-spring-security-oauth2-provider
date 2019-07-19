@@ -1,3 +1,6 @@
+* 4.0.0-RC1
+** Upgrade to support Grails 4 (pull request #16)
+
 * 3.2.1
 ** Fix logging (https://github.com/grails/grails-core/issues/10683)
 ** Upgrade spring-security-oauth2 to 2.0.18 for security fixes
