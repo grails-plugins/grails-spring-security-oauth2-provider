@@ -2,7 +2,7 @@
                       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head>
-    <title>3 Example Flows 3.0.0-RC2</title>
+    <title>3 Example Flows 3.2.2.BUILD-SNAPSHOT</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <link rel="stylesheet" href="../css/main.css" type="text/css" media="screen, print" title="Style" charset="utf-8"/>
     <link rel="stylesheet" href="../css/pdf.css" type="text/css" media="print" title="PDF" charset="utf-8"/>
@@ -17,53 +17,53 @@ function addJsClass() {
 
 <body class="body" onload="addJsClass();">
 <div id="navigation">
-    <ul>
-        <li>
-            <div id="nav-summary" onmouseover="toggleNavSummary(false)" onmouseout="toggleNavSummary(true)">
-                <a href="../guide/index.html" class="button">Table of contents</a>
-
-                <div id="nav-summary-childs" style="display:none;">
-                    
-                    <div class="toc-item" style="margin-left:0"><a href="../guide/introduction.html"><strong>1</strong><span>Introduction to the Spring Security OAuth2 Plugin</span></a>
-                    </div>
-                    
-                    <div class="toc-item" style="margin-left:0"><a href="../guide/gettingStarted.html"><strong>2</strong><span>Getting Started</span></a>
-                    </div>
-                    
-                    <div class="toc-item" style="margin-left:0"><a href="../guide/exampleFlows.html"><strong>3</strong><span>Example Flows</span></a>
-                    </div>
-                    
-                    <div class="toc-item" style="margin-left:0"><a href="../guide/domainClasses.html"><strong>4</strong><span>Required Domain Classes</span></a>
-                    </div>
-                    
-                    <div class="toc-item" style="margin-left:0"><a href="../guide/optionalDomainClasses.html"><strong>5</strong><span>Optional Domain Classes</span></a>
-                    </div>
-                    
-                    <div class="toc-item" style="margin-left:0"><a href="../guide/domainClassProperties.html"><strong>6</strong><span>Domain Class Properties</span></a>
-                    </div>
-                    
-                    <div class="toc-item" style="margin-left:0"><a href="../guide/configuration.html"><strong>7</strong><span>Configuration</span></a>
-                    </div>
-                    
-                    <div class="toc-item" style="margin-left:0"><a href="../guide/standaloneResourceAuthorizationServer.html"><strong>8</strong><span>Standalone Resource Server or Authorization Server</span></a>
-                    </div>
-                    
-                </div>
-            </div>
-        </li>
-        <li class="separator selected">
-            <a id="ref-button" onclick="localToggle(); return false;" href="#">Quick Reference</a>
-        </li>
-    </ul>
-</div>
-<div id="header">
-    <div class="images clearfix">
+    <div class="navTitle">
         
-        
+        spring-security-oauth2-provider
     </div>
-    <p>Grails OAuth2 Provider Plugin</p>
-</div>
+    <div class="navLinks">
+        <ul>
+            <li>
+                <div id="nav-summary" onmouseover="toggleNavSummary(false)" onmouseout="toggleNavSummary(true)">
+                    <a href="../guide/index.html" class="button">Table of contents</a>
 
+                    <div id="nav-summary-childs" style="display:none;">
+                        
+                        <div class="toc-item" style="margin-left:0"><a href="../guide/introduction.html"><strong>1</strong><span>Introduction to the Spring Security OAuth2 Plugin</span></a>
+                        </div>
+                        
+                        <div class="toc-item" style="margin-left:0"><a href="../guide/gettingStarted.html"><strong>2</strong><span>Getting Started</span></a>
+                        </div>
+                        
+                        <div class="toc-item" style="margin-left:0"><a href="../guide/exampleFlows.html"><strong>3</strong><span>Example Flows</span></a>
+                        </div>
+                        
+                        <div class="toc-item" style="margin-left:0"><a href="../guide/domainClasses.html"><strong>4</strong><span>Required Domain Classes</span></a>
+                        </div>
+                        
+                        <div class="toc-item" style="margin-left:0"><a href="../guide/optionalDomainClasses.html"><strong>5</strong><span>Optional Domain Classes</span></a>
+                        </div>
+                        
+                        <div class="toc-item" style="margin-left:0"><a href="../guide/domainClassProperties.html"><strong>6</strong><span>Domain Class Properties</span></a>
+                        </div>
+                        
+                        <div class="toc-item" style="margin-left:0"><a href="../guide/configuration.html"><strong>7</strong><span>Configuration</span></a>
+                        </div>
+                        
+                        <div class="toc-item" style="margin-left:0"><a href="../guide/standaloneResourceAuthorizationServer.html"><strong>8</strong><span>Standalone Resource Server or Authorization Server</span></a>
+                        </div>
+                        
+                    </div>
+                </div>
+            </li>
+            <li class="separator selected">
+                <a id="ref-button" onclick="localToggle(); return false;" href="#">Quick Reference</a>
+            </li>
+        </ul>
+    </div>
+
+
+</div>
 
 <table id="colset" border="0" cellpadding="0" cellspacing="0">
     <tr>
@@ -82,13 +82,9 @@ function addJsClass() {
 
 
                 <div class="project">
-                    <h1>3 Example Flows - Reference Documentation</h1>
+                    <h1>3 Example Flows</h1>
 
-                    <p><strong>Authors:</strong> Brian Saville, Bobby Vandiver, Roy Willemse</p>
-
-                    <p><strong>Version:</strong> 3.0.0-RC2</p>
-
-                    
+                    <p><strong>Version:</strong> 3.2.2.BUILD-SNAPSHOT</p>
                 </div>
 
                 
@@ -116,6 +112,8 @@ function addJsClass() {
                 
 
 <h1 id="exampleFlows">3 Example Flows</h1>
+
+
 The following examples assume you have followed the steps outlined in the <a href="../guide/single.html#gettingStarted" class="guide">Getting Started</a> section for an application named <code>oauth2-test</code> and your <code>grails-app/init/BootStrap.groovy</code> contains the following:<p class="paragraph"/><div class="code"><pre>def init = &#123; servletContext &#45;&#62;<p class="paragraph"/>    Role roleUser = <span class="java&#45;keyword">new</span> Role(authority: 'ROLE_USER').save(flush: <span class="java&#45;keyword">true</span>)<p class="paragraph"/>    User user = <span class="java&#45;keyword">new</span> User(
          username: 'my&#45;user',
          password: 'my&#45;password',
@@ -134,6 +132,8 @@ The following examples assume you have followed the steps outlined in the <a hre
 
 
 <h2 id="authorizationCode">3.1 Authorization Code Grant</h2>
+
+
 The authorization code grant flow is initiated by directing your browser to the authorization endpoint:<p class="paragraph"/><div class="code"><pre>http://localhost:8080/oauth2&#45;test/oauth/authorize?response_type=code&#38;client_id=my&#45;client&#38;scope=read</pre></div><p class="paragraph"/>You will be redirected to the login page. After signing in, you will be prompted to confirm the request. Doing so will redirect your browser to the following URL:<p class="paragraph"/><div class="code"><pre>http://myredirect.com/?code=139R59</pre></div><p class="paragraph"/>The authorization code included in the query can be exchanged for an access token via the token endpoint:<p class="paragraph"/><div class="code"><pre>curl &#45;X POST &#92;
      &#45;d <span class="java&#45;quote">"client_id=my&#45;client"</span> &#92;
      &#45;d <span class="java&#45;quote">"grant_type=authorization_code"</span> &#92;
@@ -149,10 +149,14 @@ The authorization code grant flow is initiated by directing your browser to the 
 
 
 <h2 id="implicit">3.2 Implicit Grant</h2>
+
+
 The implicit grant is similar to the authorization code grant and can be initiated by directing your browser to the authorization endpoint:<p class="paragraph"/><div class="code"><pre>http://localhost:8080/oauth2&#45;test/oauth/authorize?response_type=token&#38;client_id=my&#45;client&#38;scope=read</pre></div><p class="paragraph"/>Upon confirmation, your browser will be redirected to the following URL:<p class="paragraph"/><div class="code"><pre>http://myredirect.com/&#35;access_token=4e22ad4f&#45;08ae&#45;49dc&#45;befb&#45;2c9821af04d1&#38;token_type=bearer&#38;expires_in=43199</pre></div><p class="paragraph"/>The <code>access_token</code> can be extracted from the URL fragment.
 
 
 <h2 id="password">3.3 Resource Owner Password Credentials Grant</h2>
+
+
 The resource owner password grant is performed by requesting an access token from the token endpoint:<p class="paragraph"/><div class="code"><pre>curl &#45;X POST &#92;
      &#45;d <span class="java&#45;quote">"client_id=my&#45;client"</span> &#92;
      &#45;d <span class="java&#45;quote">"grant_type=password"</span> &#92;
@@ -172,6 +176,8 @@ The resource owner password grant is performed by requesting an access token fro
 
 
 <h2 id="clientCredentials">3.4 Client Credentials Grant</h2>
+
+
 The client credentials grant is performed by authenticating the client via the token endpoint:<p class="paragraph"/><div class="code"><pre>curl &#45;X POST &#92;
      &#45;d <span class="java&#45;quote">"client_id=my&#45;client"</span> &#92;
      &#45;d <span class="java&#45;quote">"grant_type=client_credentials"</span> &#92;
@@ -187,6 +193,8 @@ The client credentials grant is performed by authenticating the client via the t
 
 
 <h2 id="refreshToken">3.5 Refresh Token Grant</h2>
+
+
 The refresh token grant is performed by exchanging a refresh token received during a previous authorization request for an access token from the token endpoint:<p class="paragraph"/><div class="code"><pre>curl &#45;X POST &#92;
      &#45;d <span class="java&#45;quote">"client_id=my&#45;client"</span> &#92;
      &#45;d <span class="java&#45;quote">"grant_type=refresh_token"</span> &#92;
