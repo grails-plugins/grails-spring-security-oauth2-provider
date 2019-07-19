@@ -37,16 +37,15 @@ if [[ -n $TRAVIS_TAG ]]; then
     git add latest
 
     version="$TRAVIS_TAG" # eg: 3.0.1
-    majorVersion=${version:0:4} # 3.0.
-    majorVersion="${majorVersion}x" # 3.0.x
+    docVersion="v${version:0:1}" # v3
 
     mkdir -p "$version"
     cp -r ../spring-security-oauth2-provider/build/docs/. "./$version/"
     git add "$version"
 
-    git rm -rf "$majorVersion" || true
-    cp -r ../spring-security-oauth2-provider/build/docs/. "./$majorVersion/"
-    git add "$majorVersion"
+    git rm -rf "$docVersion" || true
+    cp -r ../spring-security-oauth2-provider/build/docs/. "./$docVersion/"
+    git add "$docVersion"
 fi
 
 cp -r ../spring-security-oauth2-provider/gh-pages-index.html ./index.html
