@@ -414,7 +414,6 @@ class SpringSecurityOauth2ProviderGrailsPlugin extends Plugin {
         clientCredentialsAuthenticationProvider(DaoAuthenticationProvider) {
             userDetailsService = ref('clientDetailsUserService')
             passwordEncoder = ref('passwordEncoder')
-            saltSource = ref('saltSource')
         }
 
         oauth2AuthenticationDetailsSource(OAuth2AuthenticationDetailsSource)

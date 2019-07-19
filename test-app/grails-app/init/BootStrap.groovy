@@ -1,3 +1,4 @@
+import grails.gorm.transactions.Transactional
 import test.oauth2.Client
 import test.oauth2.Role
 import test.oauth2.User
@@ -8,7 +9,11 @@ class BootStrap {
     private static final String REDIRECT_URI = 'http://localhost:8080/redirect'
 
     def init = { servletContext ->
+        seedData()
+    }
 
+    @Transactional
+    void seedData() {
         Role roleUser = new Role(authority: 'ROLE_USER').save(flush: true)
 
         User user = new User(

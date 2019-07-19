@@ -1,6 +1,6 @@
 package test.oauth2
 
-import grails.test.mixin.integration.Integration
+import grails.testing.mixin.integration.Integration
 import helper.TestEnvironmentCleaner
 import spock.lang.Specification
 

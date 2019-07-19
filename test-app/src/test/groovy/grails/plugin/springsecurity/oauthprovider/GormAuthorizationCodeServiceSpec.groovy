@@ -2,16 +2,19 @@ package grails.plugin.springsecurity.oauthprovider
 
 import grails.plugin.springsecurity.SpringSecurityUtils
 import grails.plugin.springsecurity.oauthprovider.serialization.OAuth2AuthenticationSerializer
-import grails.test.mixin.Mock
-import grails.test.mixin.TestFor
+import grails.testing.gorm.DataTest
+import grails.testing.services.ServiceUnitTest
 import org.springframework.security.oauth2.provider.OAuth2Authentication
 import spock.lang.Specification
 import spock.lang.Unroll
 import test.oauth2.AuthorizationCode
 
-@TestFor(GormAuthorizationCodeService)
-@Mock([AuthorizationCode])
-class GormAuthorizationCodeServiceSpec extends Specification {
+class GormAuthorizationCodeServiceSpec extends Specification implements ServiceUnitTest<GormAuthorizationCodeService>, DataTest {
+
+    @Override
+    Class[] getDomainClassesToMock() {
+        [AuthorizationCode]
+    }
 
     String code = 'testAuthCode'
     OAuth2Authentication oauth2Authentication = Stub(OAuth2Authentication)

@@ -1,20 +1,18 @@
 package test.oauth2
 
-import grails.test.mixin.TestFor
+
+import grails.testing.gorm.DomainUnitTest
 import spock.lang.Ignore
-import spock.lang.IgnoreIf
 import spock.lang.Specification
 import spock.lang.Unroll
 import test.oauth2.RefreshToken
 
-@TestFor(RefreshToken)
-class RefreshTokenSpec extends Specification {
+class RefreshTokenSpec extends Specification implements DomainUnitTest<RefreshToken> {
 
-    @Ignore("TODO: Find Grails 3 equivalent of mockForConstraintsTests")
+    @Ignore("Uniqueness constraints are only test-able in integration tests")
     void "value must be unique"() {
         given:
         def existingToken = new RefreshToken(value: 'gormRefreshToken')
-        mockForConstraintsTests(RefreshToken, [existingToken])
 
         when:
         def newToken = new RefreshToken(value: 'gormRefreshToken')
