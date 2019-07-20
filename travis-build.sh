@@ -25,7 +25,10 @@ if [[ -n ${TRAVIS_TAG} ]] || [[ ${TRAVIS_BRANCH} == 'master' && ${TRAVIS_PULL_RE
         echo "Publishing snapshot..."
         ./gradlew :spring-security-oauth2-provider:publish
     fi
+fi
 
+# Only publish docs if it's not a pull request
+if [[ ${TRAVIS_PULL_REQUEST} == 'false' ]]; then
     ./publish-docs.sh
 fi
 
