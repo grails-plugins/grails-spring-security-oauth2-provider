@@ -20,33 +20,29 @@ cd gh-pages
 # Show commands that are run
 set -e
 
-# If this is the master branch then update the snapshot
-if [[ $TRAVIS_BRANCH == 'master' ]]; then
-    git rm -rf snapshot/ || true
-    mkdir -p snapshot
-    cp -r ../spring-security-oauth2-provider/build/docs/. ./snapshot/
-
-    git add snapshot
+releaseDir="."
+if [[ $TRAVIS_BRANCH == *".x"* ]]; then
+    # If this is a versioned branch, use the versioned dir such as v3
+    releaseDir="./v${TRAVIS_BRANCH:0:1}"
 fi
 
-# If there is a tag present then this becomes the latest
-if [[ -n $TRAVIS_TAG ]]; then
-    git rm -rf latest/ || true
-    mkdir -p latest
-    cp -r ../spring-security-oauth2-provider/build/docs/. ./latest/
-    git add latest
+if [[ -z "$TRAVIS_TAG" ]]; then
+    releaseDir="${releaseDir}/snapshot"
+else
+    releaseDir="${releaseDir}/latest"
 
+    # Also copy the release to a specific, versioned folder
     version="$TRAVIS_TAG" # eg: 3.0.1
-    docVersion="v${version:0:1}" # v3
-
     mkdir -p "$version"
-    cp -r ../spring-security-oauth2-provider/build/docs/. "./$version/"
+    cp -r ../spring-security-oauth2-provider/build/docs/. "$version"
     git add "$version"
-
-    git rm -rf "$docVersion" || true
-    cp -r ../spring-security-oauth2-provider/build/docs/. "./$docVersion/"
-    git add "$docVersion"
 fi
+
+# Update the documentation correctly
+git rm -rf "${releaseDir}" || true
+mkdir -p "${releaseDir}"
+cp -r ../spring-security-oauth2-provider/build/docs/. "${releaseDir}"
+git add "${releaseDir}"
 
 cp -r ../spring-security-oauth2-provider/gh-pages-index.html ./index.html
 
